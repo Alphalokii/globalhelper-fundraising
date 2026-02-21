@@ -3,12 +3,19 @@ import React from 'react';
 interface NewsItem {
   id: string;
   title: string;
-  summary: string;
+  description: string;
   content: string;
-  category: string;
-  date: string;
+  url: string;
+  imageUrl: string;
+  publishedAt: string;
+  source: {
+    name: string;
+    id: string;
+  };
   author: string;
-  imageUrl?: string;
+  category: string;
+  summary: string;
+  date: string;
 }
 
 interface NewsCardProps {
@@ -46,7 +53,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ news, onReadMore }) => {
             {news.category.toUpperCase()}
           </span>
           <span className="text-sm text-gray-500">
-            {new Date(news.date).toLocaleDateString()}
+            {new Date(news.publishedAt).toLocaleDateString()}
           </span>
         </div>
         
@@ -55,7 +62,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ news, onReadMore }) => {
         </h3>
         
         <p className="text-gray-600 mb-4 line-clamp-3">
-          {news.summary}
+          {news.description}
         </p>
         
         <div className="flex items-center justify-between">
