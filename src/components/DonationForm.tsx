@@ -17,7 +17,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ campaignId, campaignName })
   const [showPayment, setShowPayment] = useState<boolean>(false);
   const [paymentStatus, setPaymentStatus] = useState<'idle' | 'processing' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [donorInfo, setDonorInfo] = useState({
+  const [_donorInfo, _setDonorInfo] = useState({
     name: '',
     email: '',
     phone: '',

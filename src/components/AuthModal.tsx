@@ -199,9 +199,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
                   <input type="checkbox" className="mr-2" />
                   <span className="text-sm text-gray-600">Remember me</span>
                 </label>
-                <a href="#" className="text-sm text-indigo-600 hover:text-indigo-700">
+                <button type="button" className="text-sm text-indigo-600 hover:text-indigo-700">
                   Forgot password?
-                </a>
+                </button>
               </div>
             )}
 
@@ -292,9 +292,9 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose, initialMode = 'l
           {mode === 'register' && (
             <p className="mt-4 text-xs text-gray-500 text-center">
               By creating an account, you agree to our{' '}
-              <a href="#" className="text-indigo-600 hover:text-indigo-700">Terms of Service</a>{' '}
+              <button type="button" className="text-indigo-600 hover:text-indigo-700">Terms of Service</button>{' '}
               and{' '}
-              <a href="#" className="text-indigo-600 hover:text-indigo-700">Privacy Policy</a>
+              <button type="button" className="text-indigo-600 hover:text-indigo-700">Privacy Policy</button>
             </p>
           )}
         </div>

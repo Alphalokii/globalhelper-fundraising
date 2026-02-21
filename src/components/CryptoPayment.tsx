@@ -13,7 +13,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({ amount, campaignName, onS
   const [walletAddress, setWalletAddress] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
   const [showQRCode, setShowQRCode] = useState(false);
-  const [transactionId, setTransactionId] = useState('');
+  const [_transactionId, setTransactionId] = useState('');
   const [copied, setCopied] = useState(false);
 
   // Your crypto wallet addresses
@@ -60,7 +60,7 @@ const CryptoPayment: React.FC<CryptoPaymentProps> = ({ amount, campaignName, onS
   };
 
   const handlePayment = () => {
-    const cryptoAmount = calculateCryptoAmount();
+    const _cryptoAmount = calculateCryptoAmount();
     const txId = `tx_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
     setTransactionId(txId);
     onSuccess(txId);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const HumanitarianCrisesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [donationAmount, setDonationAmount] = useState('');
+  const [_donationAmount, _setDonationAmount] = useState('');
 
   const crises = [
     // Sudan Civil War
