@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import NewsCard from './NewsCard';
-import newsService, { NewsArticle } from '../services/newsService';
+import newsService from '../services/newsService';
 
 interface NewsItem {
   id: string;
@@ -16,6 +16,8 @@ interface NewsItem {
   };
   author: string;
   category: string;
+  summary: string;
+  date: string;
 }
 
 interface NewsSectionProps {

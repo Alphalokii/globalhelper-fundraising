@@ -23,7 +23,6 @@ const HUMANITARIAN_KEYWORDS = [
   'humanitarian',
   'disaster',
   'relief',
-  'aid',
   'refugee',
   'crisis',
   'emergency',
@@ -40,29 +39,14 @@ const HUMANITARIAN_KEYWORDS = [
   'conflict',
   'war',
   'peace',
-  'sustainability'
+  'sustainability',
+  'aid'
 ];
-
-export interface NewsArticle {
-  id: string;
-  title: string;
-  description: string;
-  content: string;
-  url: string;
-  imageUrl: string;
-  publishedAt: string;
-  source: {
-    name: string;
-    id: string;
-  };
-  author: string;
-  category: string;
-}
 
 export interface NewsResponse {
   status: string;
   totalResults: number;
-  articles: NewsArticle[];
+  articles: NewsItem[];
 }
 
 class NewsService {
@@ -192,7 +176,7 @@ class NewsService {
   }
 
   // Filter articles for humanitarian relevance
-  private filterHumanitarianArticles(articles: any[]): NewsArticle[] {
+  private filterHumanitarianArticles(articles: any[]): NewsItem[] {
     return articles.filter(article => {
       const title = (article.title || '').toLowerCase();
       const description = (article.description || '').toLowerCase();
@@ -207,7 +191,7 @@ class NewsService {
   }
 
   // Transform single article
-  private transformArticle(article: any): NewsArticle {
+  private transformArticle(article: any): NewsItem {
     return {
       id: article.url || Math.random().toString(36).substr(2, 9),
       title: article.title || 'No title available',
@@ -226,7 +210,7 @@ class NewsService {
   }
 
   // Transform multiple articles
-  private transformArticles(articles: any[]): NewsArticle[] {
+  private transformArticles(articles: any[]): NewsItem[] {
     return articles.map(article => this.transformArticle(article));
   }
 
