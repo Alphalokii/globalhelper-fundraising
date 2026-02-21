@@ -25,7 +25,7 @@ interface Donation {
 
 const AdminDashboard: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'campaigns' | 'donations' | 'users'>('overview');
-  const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null);
+  const [_selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null);
 
   // Mock data - in real app, this would come from API
   const campaigns: Campaign[] = [
@@ -110,7 +110,7 @@ const AdminDashboard: React.FC = () => {
   ];
 
   const totalRaised = campaigns.reduce((sum, campaign) => sum + campaign.raised, 0);
-  const totalGoal = campaigns.reduce((sum, campaign) => sum + campaign.goal, 0);
+  const _totalGoal = campaigns.reduce((sum, campaign) => sum + campaign.goal, 0);
   const totalDonors = campaigns.reduce((sum, campaign) => sum + campaign.donors, 0);
   const activeCampaigns = campaigns.filter(c => c.status === 'active').length;
 

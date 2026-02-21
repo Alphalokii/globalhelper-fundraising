@@ -17,7 +17,7 @@ interface Campaign {
 }
 
 const CampaignsPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, _setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [showCryptoPayment, setShowCryptoPayment] = useState(false);
   const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 
 interface PayPalButtonProps {
   amount: number;
@@ -21,19 +21,7 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
   isMonthly,
   campaignId
 }) => {
-  useEffect(() => {
-    // Load PayPal SDK
-    const script = document.createElement('script');
-    script.src = 'https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD'; // Replace with actual client ID
-    script.addEventListener('load', setupPayPal);
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
-  const setupPayPal = () => {
+  const setupPayPal = useCallback(() => {
     if (!window.paypal) {
       onError('PayPal SDK failed to load');
       return;
@@ -52,7 +40,7 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
       },
       onApprove: async (data: any, actions: any) => {
         try {
-          const order = await actions.order.capture();
+          const _order = await actions.order.capture();
           
           // Send order details to your server
           const response = await fetch('/api/paypal-capture', {
@@ -63,24 +51,21 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
             body: JSON.stringify({
               orderID: data.orderID,
               amount,
-              isMonthly,
               campaignId,
             }),
           });
 
-          const result = await response.json();
-          
-          if (result.success) {
+          if (response.ok) {
             onSuccess();
           } else {
-            onError('Payment verification failed');
+            onError('PayPal payment failed');
           }
         } catch (error) {
-          onError('Payment processing failed');
+          onError('PayPal payment error');
         }
       },
       onError: (err: any) => {
-        onError('PayPal payment failed');
+        onError('PayPal payment error');
       },
       style: {
         layout: 'vertical',
@@ -89,7 +74,19 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
         label: 'pay',
       },
     }).render('#paypal-button-container');
-  };
+  }, [amount, campaignId, onError, onSuccess]);
+
+  useEffect(() => {
+    // Load PayPal SDK
+    const script = document.createElement('script');
+    script.src = 'https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD'; // Replace with actual client ID
+    script.addEventListener('load', setupPayPal);
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, [setupPayPal]);
 
   return (
     <div className="space-y-4">
