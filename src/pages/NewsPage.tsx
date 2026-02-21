@@ -36,10 +36,10 @@ const NewsPage: React.FC = () => {
             <div>
               <h3 className="text-lg font-semibold mb-4">Categories</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Humanitarian</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Education</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Healthcare</a></li>
-                <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Environment</a></li>
+                <li><button type="button" className="text-gray-300 hover:text-white transition-colors text-left">Humanitarian</button></li>
+                <li><button type="button" className="text-gray-300 hover:text-white transition-colors text-left">Education</button></li>
+                <li><button type="button" className="text-gray-300 hover:text-white transition-colors text-left">Healthcare</button></li>
+                <li><button type="button" className="text-gray-300 hover:text-white transition-colors text-left">Environment</button></li>
               </ul>
             </div>
             
