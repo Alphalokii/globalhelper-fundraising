@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Navigation from '../components/Navigation';
 import CryptoPayment from '../components/CryptoPayment';
 
 interface Campaign {
@@ -18,12 +17,12 @@ interface Campaign {
 }
 
 const CampaignsPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [_selectedCategory, _setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [showCryptoPayment, setShowCryptoPayment] = useState(false);
   const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null);
 
-  const categories = ['all', 'education', 'health', 'environment', 'disaster', 'community'];
+  const _categories = ['all', 'education', 'health', 'environment', 'disaster', 'community'];
 
   const campaigns: Campaign[] = [
     {

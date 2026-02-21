@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const HumanitarianCrisesPage: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [_selectedCategory, _setSelectedCategory] = useState('all');
   const [_donationAmount, _setDonationAmount] = useState('');
 
   const crises = [
