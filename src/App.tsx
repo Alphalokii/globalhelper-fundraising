@@ -11,6 +11,8 @@ import CampaignsPage from './pages/CampaignsPage';
 import CampaignDetailPage from './pages/CampaignDetailPage';
 import ProfilePage from './pages/ProfilePage';
 import AdminDashboard from './pages/AdminDashboard';
+import NewsPage from './pages/NewsPage';
+import NewsSection from './components/NewsSection';
 
 function HomePage() {
   return (
@@ -40,6 +42,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Latest News Section */}
+      <NewsSection />
 
       {/* Featured Campaigns Section */}
       <section className="py-16 bg-gray-50">
@@ -274,6 +279,12 @@ function App() {
             <>
               <Navigation currentPage="donate" />
               <DonatePage />
+            </>
+          } />
+          <Route path="/news" element={
+            <>
+              <Navigation currentPage="news" />
+              <NewsPage />
             </>
           } />
           <Route path="/campaigns" element={

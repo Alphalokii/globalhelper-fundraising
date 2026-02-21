@@ -82,6 +82,14 @@ const Navigation: React.FC<NavigationProps> = ({ currentPage = 'home' }) => {
                 Campaigns
               </a>
               <a 
+                href="/news" 
+                className={`transition text-sm sm:text-base ${
+                  currentPage === 'news' ? 'text-indigo-600 font-medium' : 'text-gray-700 hover:text-indigo-600'
+                }`}
+              >
+                News
+              </a>
+              <a 
                 href="/humanitarian-crises" 
                 className={`transition text-sm sm:text-base ${
                   currentPage === 'humanitarian-crises' ? 'text-red-600 font-medium' : 'text-gray-700 hover:text-red-600'
