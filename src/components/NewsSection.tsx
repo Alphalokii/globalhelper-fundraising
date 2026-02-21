@@ -22,7 +22,7 @@ const NewsSection: React.FC<NewsSectionProps> = ({ title = "Latest News & Update
   const [expandedNews, setExpandedNews] = useState<string | null>(null);
 
   // Sample news data - in real app, this would come from API/database
-  const [newsItems, setNewsItems] = useState<NewsItem[]>([
+  const [newsItems, _setNewsItems] = useState<NewsItem[]>([
     {
       id: '1',
       title: 'GlobalHelper Launches Major Sudan Relief Campaign',
