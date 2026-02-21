@@ -18,7 +18,7 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
   amount,
   onSuccess,
   onError,
-  isMonthly,
+  isMonthly: _isMonthly,
   campaignId
 }) => {
   const setupPayPal = useCallback(() => {
@@ -64,7 +64,7 @@ const PayPalButton: React.FC<PayPalButtonProps> = ({
           onError('PayPal payment error');
         }
       },
-      onError: (err: any) => {
+      onError: (_err: any) => {
         onError('PayPal payment error');
       },
       style: {

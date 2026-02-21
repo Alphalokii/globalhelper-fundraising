@@ -11,7 +11,7 @@ const SocialShare: React.FC<SocialShareProps> = ({
   url, 
   title, 
   description = "Help support this amazing cause!", 
-  campaignId 
+  campaignId: _campaignId 
 }) => {
   const [copied, setCopied] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
