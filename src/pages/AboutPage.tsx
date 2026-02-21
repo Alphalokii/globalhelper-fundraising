@@ -81,7 +81,7 @@ const AboutPage: React.FC = () => {
                   
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold">
-                      2024
+                      2026
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Global Impact</h4>
@@ -203,7 +203,7 @@ const AboutPage: React.FC = () => {
                     <div className="w-20 h-20 bg-purple-100 rounded-full mx-auto mb-3 flex items-center justify-center">
                       <div className="text-2xl font-bold text-purple-600">10+</div>
                     </div>
-                    <h3 className="font-semibold text-gray-900">Years Experience</h3>
+                    <h3 className="font-semibold text-gray-900">10+ Years Experience</h3>
                     <p className="text-sm text-gray-600">Average team experience</p>
                   </div>
                 </div>
