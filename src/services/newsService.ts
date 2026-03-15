@@ -43,6 +43,25 @@ const HUMANITARIAN_KEYWORDS = [
   'aid'
 ];
 
+// News Article interface for API responses
+interface NewsItem {
+  id: string;
+  title: string;
+  description: string;
+  content: string;
+  url: string;
+  imageUrl: string;
+  publishedAt: string;
+  source: {
+    name: string;
+    id: string;
+  };
+  author: string;
+  category: string;
+  summary: string;
+  date: string;
+}
+
 export interface NewsResponse {
   status: string;
   totalResults: number;
@@ -205,7 +224,9 @@ class NewsService {
         id: article.source?.id || 'unknown'
       },
       author: article.author || 'Unknown Author',
-      category: this.categorizeArticle(article)
+      category: this.categorizeArticle(article),
+      summary: article.description || article.title || 'No description available',
+      date: article.publishedAt || new Date().toISOString()
     };
   }
 
@@ -236,7 +257,7 @@ class NewsService {
 
   // Fallback news when API fails or no API key
   private getFallbackNews(): NewsResponse {
-    const fallbackArticles: NewsArticle[] = [
+    const fallbackArticles: NewsItem[] = [
       {
         id: 'fallback-1',
         title: 'GlobalHelper Platform Continues to Make Impact',
@@ -250,7 +271,9 @@ class NewsService {
           id: 'globalhelper'
         },
         author: 'GlobalHelper Team',
-        category: 'campaign'
+        category: 'campaign',
+        summary: 'Our fundraising platform continues to connect donors with important causes worldwide.',
+        date: new Date().toISOString()
       },
       {
         id: 'fallback-2',
@@ -265,7 +288,9 @@ class NewsService {
           id: 'globalhelper'
         },
         author: 'Crypto News Desk',
-        category: 'crypto'
+        category: 'crypto',
+        summary: 'Cryptocurrency donations to humanitarian causes have seen unprecedented growth this year.',
+        date: new Date(Date.now() - 86400000).toISOString()
       },
       {
         id: 'fallback-3',
@@ -280,7 +305,9 @@ class NewsService {
           id: 'globalhelper'
         },
         author: 'Impact Team',
-        category: 'campaign'
+        category: 'campaign',
+        summary: 'Our flagship clean water initiative has successfully provided clean drinking water to thousands.',
+        date: new Date(Date.now() - 172800000).toISOString()
       }
     ];
 
@@ -292,4 +319,5 @@ class NewsService {
   }
 }
 
-export default new NewsService();
+const newsServiceInstance = new NewsService();
+export default newsServiceInstance;
