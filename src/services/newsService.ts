@@ -79,6 +79,8 @@ class NewsService {
 
   // Get humanitarian news from multiple sources
   async getHumanitarianNews(page: number = 1, pageSize: number = 20): Promise<NewsResponse> {
+    console.log('Fetching real news with API key:', NEWS_API_KEY ? 'YES' : 'NO');
+    
     // Check if we have a real API key
     if (!NEWS_API_KEY || NEWS_API_KEY === 'demo_key_fallback') {
       console.log('Using demo news - get API key from NewsAPI.org');
@@ -97,11 +99,15 @@ class NewsService {
         }
       });
 
+      console.log('NewsAPI response status:', response.status);
+      console.log('Articles received:', response.data.articles?.length || 0);
+
       // Filter articles for humanitarian relevance
       const filteredArticles = this.filterHumanitarianArticles(response.data.articles);
       
       return {
-        ...response.data,
+        status: 'ok',
+        totalResults: filteredArticles.length,
         articles: filteredArticles
       };
     } catch (error) {

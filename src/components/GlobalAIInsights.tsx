@@ -71,7 +71,7 @@ const GlobalAIInsights: React.FC = () => {
 
       {/* Analyze with GlobalAI Section */}
       <div className="mb-6 p-4 bg-white rounded-lg border border-purple-200">
-        <h3 className="text-lg font-semibold mb-4 text-purple-800">Analyze with GlobalAI Nexus</h3>
+        <h3 className="text-lg font-semibold mb-4 text-purple-800">Analyze with GlobalAI Nexus + Grok Collaboration</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <button
             onClick={() => analyzeWithGlobalAI(
@@ -93,6 +93,9 @@ const GlobalAIInsights: React.FC = () => {
           >
             {analyzing ? 'Analyzing...' : '📊 Analyze Trading'}
           </button>
+        </div>
+        <div className="mt-3 text-sm text-purple-600 bg-purple-50 p-2 rounded">
+          <strong>🤖 AI Collaboration:</strong> GlobalAI Nexus Intelligence works with Grok AI for comprehensive analysis.
         </div>
       </div>
 

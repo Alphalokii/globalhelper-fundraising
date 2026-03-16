@@ -1,7 +1,6 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
 import NewsSection from '../components/NewsSection';
-import AINewsInsights from '../components/AINewsInsights';
 import GlobalAIInsights from '../components/GlobalAIInsights';
 
 const NewsPage: React.FC = () => {
@@ -15,9 +14,6 @@ const NewsPage: React.FC = () => {
         
         {/* GlobalAI Nexus Intelligence Section */}
         <GlobalAIInsights />
-        
-        {/* Grok AI Insights Section */}
-        <AINewsInsights />
         
         {/* Regular News Section */}
         <NewsSection />

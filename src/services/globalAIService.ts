@@ -20,9 +20,10 @@ export class GlobalAIService {
     this.baseUrl = GLOBALAI_API_URL;
   }
 
-  // Analyze news with GlobalAI Nexus Trading Intelligence
+  // Analyze news with GlobalAI Nexus Trading Intelligence (with Grok collaboration)
   async analyzeWithNexus(newsContent: string, newsTitle: string): Promise<GlobalAIInsight> {
     try {
+      // First try GlobalAI Nexus analysis
       const response = await fetch(`${this.baseUrl}/analyze`, {
         method: 'POST',
         headers: {
@@ -33,7 +34,8 @@ export class GlobalAIService {
           content: newsContent,
           title: newsTitle,
           context: 'humanitarian-fundraising',
-          nexus_integration: true
+          nexus_integration: true,
+          grok_collaboration: true // Enable Grok collaboration
         })
       });
 
@@ -43,11 +45,24 @@ export class GlobalAIService {
 
       const data = await response.json();
       
+      // Enhance with Grok collaboration data if available
+      let enhancedAnalysis = data.analysis;
+      let enhancedRecommendations = data.recommendations || [];
+      
+      // If Grok collaboration data available, enhance the analysis
+      if (data.grok_insights) {
+        enhancedAnalysis += `\n\n🤖 Grok AI Collaboration: ${data.grok_insights.sentiment_analysis}`;
+        enhancedRecommendations = [
+          ...enhancedRecommendations,
+          ...data.grok_insights.recommendations
+        ];
+      }
+      
       return {
         id: data.id || Date.now().toString(),
         title: newsTitle,
-        analysis: data.analysis || this.generateDemoAnalysis(newsContent),
-        recommendations: data.recommendations || this.generateDemoRecommendations(),
+        analysis: enhancedAnalysis || this.generateDemoAnalysis(newsContent),
+        recommendations: enhancedRecommendations || this.generateDemoRecommendations(),
         urgency: data.urgency || this.calculateUrgency(newsContent),
         timestamp: new Date().toISOString(),
         nexusScore: data.nexusScore || this.calculateNexusScore(newsContent)
