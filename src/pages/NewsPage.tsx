@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from '../components/Navigation';
 import NewsSection from '../components/NewsSection';
 import AINewsInsights from '../components/AINewsInsights';
+import GlobalAIInsights from '../components/GlobalAIInsights';
 
 const NewsPage: React.FC = () => {
   return (
@@ -12,7 +13,10 @@ const NewsPage: React.FC = () => {
           Latest News & Updates
         </h1>
         
-        {/* AI Insights Section */}
+        {/* GlobalAI Nexus Intelligence Section */}
+        <GlobalAIInsights />
+        
+        {/* Grok AI Insights Section */}
         <AINewsInsights />
         
         {/* Regular News Section */}
@@ -23,7 +27,7 @@ const NewsPage: React.FC = () => {
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-gray-400">
-            2026 GlobalHelper. All rights reserved.
+            2026 GlobalHelper. All rights reserved. Powered by GlobalAI Nexus Intelligence
           </p>
         </div>
       </footer>
