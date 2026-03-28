@@ -11,7 +11,7 @@ import schedule
 from datetime import datetime
 
 # Configuration (Update after Render.com deployment)
-AI_BRAIN_URL = "https://globalhelper-ai-brain.onrender.com"
+AI_BRAIN_URL = "https://globalhelper-ai-brain.up.railway.app"
 SECRET_KEY = "YOUR_SUPER_SECRET_KEY_2026"  # Change this to match your AI Brain
 
 def pull_from_globalhelper_ai():
