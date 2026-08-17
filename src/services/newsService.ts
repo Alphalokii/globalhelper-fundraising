@@ -110,8 +110,15 @@ class NewsService {
         totalResults: filteredArticles.length,
         articles: filteredArticles
       };
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching humanitarian news:', error);
+      
+      // Check if it's an API key issue
+      if (error.response?.status === 400) {
+        console.log('API Key issue or rate limiting - using fallback news');
+        return this.getFallbackNews();
+      }
+      
       // Fallback to general news with humanitarian keywords
       return this.getHumanitarianNewsByKeywords(page, pageSize);
     }
@@ -223,7 +230,7 @@ class NewsService {
       description: article.description || article.title || 'No description available',
       content: article.content || article.description || 'No content available',
       url: article.url || '#',
-      imageUrl: article.urlToImage || '/logo/GlobalHelper_logo.png',
+      imageUrl: article.urlToImage || '/Clean water/160_UNI135099.webp',
       publishedAt: article.publishedAt || new Date().toISOString(),
       source: {
         name: article.source?.name || 'Unknown Source',
@@ -266,11 +273,28 @@ class NewsService {
     const fallbackArticles: NewsItem[] = [
       {
         id: 'fallback-1',
+        title: 'Iran-Israel War Escalates - Regional Crisis Deepens',
+        description: 'Day 20 of conflict sees Iran retaliate with strikes on Israel and Qatar after Israel attacks key Iranian gas facility.',
+        content: 'The Iran-Israel conflict has entered its 20th day with escalating tensions. Israel struck the South Pars gas field, prompting Iranian retaliation against energy infrastructure in Israel and Qatar. Oil prices surged to $115 per barrel before retreating. The UN is negotiating a humanitarian corridor through the Strait of Hormuz as 18,000+ civilians have been injured in ongoing strikes.',
+        url: '/news',
+        imageUrl: '/iran/gettyimages-2263875882-612x612.jpg',
+        publishedAt: new Date().toISOString(),
+        source: {
+          name: 'GlobalHelper News',
+          id: 'globalhelper'
+        },
+        author: 'GlobalHelper Team',
+        category: 'urgent',
+        summary: 'Iran-Israel conflict escalates with 18,000+ civilian casualties and global energy disruption.',
+        date: new Date().toISOString()
+      },
+      {
+        id: 'fallback-2',
         title: 'GlobalHelper Platform Continues to Make Impact',
         description: 'Our fundraising platform continues to connect donors with important causes worldwide.',
         content: 'GlobalHelper remains committed to facilitating meaningful connections between generous donors and critical humanitarian causes around the world.',
         url: '/news',
-        imageUrl: '/logo/GlobalHelper_logo.png',
+        imageUrl: '/Clean water/160_UNI135099.webp',
         publishedAt: new Date().toISOString(),
         source: {
           name: 'GlobalHelper',
@@ -282,7 +306,7 @@ class NewsService {
         date: new Date().toISOString()
       },
       {
-        id: 'fallback-2',
+        id: 'fallback-3',
         title: 'Bitcoin Donations Surge in 2026',
         description: 'Cryptocurrency donations to humanitarian causes have seen unprecedented growth this year.',
         content: 'The first quarter of 2026 has witnessed a remarkable increase in cryptocurrency donations to humanitarian causes globally. Bitcoin transactions have proven particularly effective for international aid.',

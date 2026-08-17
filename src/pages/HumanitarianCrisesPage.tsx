@@ -31,7 +31,7 @@ const HumanitarianCrisesPage: React.FC = () => {
       id: 'palestine-crisis',
       title: 'Palestine & Gaza Humanitarian Crisis',
       category: 'palestine',
-      image: '/gaza war images/gaza-kids-scaled.jpg',
+      image: '/palestine/gettyimages-2225332050-612x612.jpg',
       description: 'Civilians in Gaza face catastrophic conditions. Urgent need for food, water, medical supplies, and shelter.',
       raised: 890000,
       goal: 2000000,
@@ -46,6 +46,72 @@ const HumanitarianCrisesPage: React.FC = () => {
         { date: '2024-02-14', title: 'Clean Water Initiative', content: 'Providing clean drinking water to 100,000+ displaced families.' },
         { date: '2024-02-10', title: 'Food Distribution Centers', content: '12 new distribution centers serving hot meals daily.' },
         { date: '2024-02-08', title: 'Temporary Shelter Program', content: 'Emergency shelters housing 25,000+ displaced civilians.' }
+      ]
+    },
+    // Iran-Israel War Crisis
+    {
+      id: 'iran-israel-crisis',
+      title: 'Iran-Israel War Emergency',
+      category: 'iran',
+      image: '/iran/gettyimages-2263875882-612x612.jpg',
+      description: 'Escalating conflict between Iran and Israel threatens regional stability. Critical need for civilian protection, medical aid, and emergency relief.',
+      raised: 450000,
+      goal: 1500000,
+      donors: 8934,
+      urgency: 'critical',
+      location: 'Iran, Israel, Middle East',
+      beneficiaries: '18,000+ injured civilians, millions at risk',
+      dateStarted: 'March 2026',
+      tags: ['War Emergency', 'Medical Crisis', 'Regional Conflict', 'Civilian Protection', 'Energy Security'],
+      updates: [
+        { date: '2026-03-21', title: 'Emergency Medical Response', content: 'Field hospitals established to treat 18,000+ injured civilians.' },
+        { date: '2026-03-20', title: 'Strait of Hormuz Humanitarian Corridor', content: 'UN negotiating safe passage for civilian vessels and aid shipments.' },
+        { date: '2026-03-19', title: 'Energy Infrastructure Protection', content: 'Emergency teams working to protect civilian energy facilities from attacks.' },
+        { date: '2026-03-18', title: 'Refugee Camp Preparation', content: 'Setting up emergency shelters for displaced families in border regions.' }
+      ]
+    },
+    // Lebanon Crisis
+    {
+      id: 'lebanon-crisis',
+      title: 'Lebanon Humanitarian Emergency',
+      category: 'lebanon',
+      image: '/lebanon/gettyimages-2241116757-612x612.jpg',
+      description: 'Lebanon faces severe humanitarian crisis with economic collapse, food shortages, and refugee influx from regional conflicts.',
+      raised: 280000,
+      goal: 1000000,
+      donors: 5672,
+      urgency: 'critical',
+      location: 'Lebanon',
+      beneficiaries: '3M+ affected civilians including refugees',
+      dateStarted: 'October 2019',
+      tags: ['Economic Crisis', 'Food Security', 'Refugee Support', 'Medical Aid', 'Infrastructure'],
+      updates: [
+        { date: '2026-03-21', title: 'Emergency Food Distribution', content: 'Reaching 100,000+ families with essential food supplies amid economic collapse.' },
+        { date: '2026-03-18', title: 'Medical Supply Shortages', content: 'Hospitals reporting critical shortages of medicine and equipment.' },
+        { date: '2026-03-15', title: 'Refugee Camp Support', content: 'Expanding capacity for Syrian and Palestinian refugees in overcrowded camps.' },
+        { date: '2026-03-12', title: 'Infrastructure Repair', content: 'Emergency repairs to water and electricity systems in affected areas.' }
+      ]
+    },
+    // Israel Crisis
+    {
+      id: 'israel-crisis',
+      title: 'Israel Emergency Relief Fund',
+      category: 'israel',
+      image: '/israel/gettyimages-2229695065-612x612.jpg',
+      description: 'Israel faces emergency situation with ongoing conflict, civilian casualties, and critical need for medical and psychological support.',
+      raised: 680000,
+      goal: 2000000,
+      donors: 9845,
+      urgency: 'high',
+      location: 'Israel',
+      beneficiaries: '9M+ affected civilians',
+      dateStarted: 'October 2023',
+      tags: ['Emergency Relief', 'Medical Support', 'Psychological Aid', 'Civilian Protection', 'Infrastructure'],
+      updates: [
+        { date: '2026-03-21', title: 'Emergency Medical Response', content: 'Field hospitals treating thousands of injured civilians from ongoing attacks.' },
+        { date: '2026-03-19', title: 'Psychological Support Services', content: 'Expanded mental health services for trauma-affected populations.' },
+        { date: '2026-03-17', title: 'Civilian Shelter Programs', content: 'Emergency shelters established for displaced families in conflict zones.' },
+        { date: '2026-03-15', title: 'Infrastructure Protection', content: 'Teams working to protect civilian infrastructure from damage.' }
       ]
     },
     // Russia-Ukraine War
@@ -81,7 +147,7 @@ const HumanitarianCrisesPage: React.FC = () => {
     window.location.href = `/donate?campaign=${crisisId}`;
   };
 
-  const handleViewGallery = (crisisId: string) => {
+  const _handleViewGallery = (crisisId: string) => {
     window.location.href = `/campaign/${crisisId}/gallery`;
   };
 
@@ -104,45 +170,78 @@ const HumanitarianCrisesPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Humanitarian Crises
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-              Urgent relief efforts for communities affected by conflict and war
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-6 py-3">
-                <div className="text-3xl font-bold">12.8M+</div>
-                <div className="text-sm">People Displaced</div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Animated Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -inset-[10px] opacity-20">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+        </div>
+      </div>
+
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 py-16">
+        {/* Hero Section */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/30 rounded-full px-6 py-2 mb-8 backdrop-blur-sm">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+            <span className="text-white font-semibold tracking-wide">LIVE CRISIS TRACKING</span>
+          </div>
+
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent mb-6">
+            Humanitarian Crises
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto font-light">
+            Urgent relief efforts for communities affected by conflict and war
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+              <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
+                <div className="text-4xl font-bold bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent mb-2">15.8M+</div>
+                <div className="text-gray-400 text-sm">People Affected</div>
               </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-6 py-3">
-                <div className="text-3xl font-bold">$3.1M+</div>
-                <div className="text-sm">Raised for Aid</div>
+            </div>
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+              <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
+                <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">$4.5M+</div>
+                <div className="text-gray-400 text-sm">Raised for Aid</div>
               </div>
-              <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg px-6 py-3">
-                <div className="text-3xl font-bold">61K+</div>
-                <div className="text-sm">Active Donors</div>
+            </div>
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+              <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
+                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent mb-2">82K+</div>
+                <div className="text-gray-400 text-sm">Active Donors</div>
+              </div>
+            </div>
+            <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500"></div>
+              <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-2xl p-6 border border-white/10">
+                <div className="text-4xl font-bold bg-gradient-to-r from-pink-400 to-rose-400 bg-clip-text text-transparent mb-2">6</div>
+                <div className="text-gray-400 text-sm">Active Crises</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Filter Tabs */}
-      <div className="bg-white shadow-sm sticky top-0 z-30">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex flex-wrap justify-center gap-4">
+        {/* Filter Tabs */}
+        <div className="bg-slate-900/50 backdrop-blur-xl border border-white/10 rounded-2xl p-2 mb-12 sticky top-20 z-30">
+          <div className="flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setSelectedCategory('all')}
               className={`px-6 py-2 rounded-lg font-medium transition ${
                 selectedCategory === 'all'
-                  ? 'bg-indigo-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
               }`}
             >
               All Crises
@@ -151,8 +250,8 @@ const HumanitarianCrisesPage: React.FC = () => {
               onClick={() => setSelectedCategory('sudan')}
               className={`px-6 py-2 rounded-lg font-medium transition ${
                 selectedCategory === 'sudan'
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
               }`}
             >
               Sudan
@@ -161,195 +260,144 @@ const HumanitarianCrisesPage: React.FC = () => {
               onClick={() => setSelectedCategory('palestine')}
               className={`px-6 py-2 rounded-lg font-medium transition ${
                 selectedCategory === 'palestine'
-                  ? 'bg-green-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
               }`}
             >
               Palestine
             </button>
             <button
+              onClick={() => setSelectedCategory('iran')}
+              className={`px-6 py-2 rounded-lg font-medium transition ${
+                selectedCategory === 'iran'
+                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
+              }`}
+            >
+              Iran
+            </button>
+            <button
+              onClick={() => setSelectedCategory('israel')}
+              className={`px-6 py-2 rounded-lg font-medium transition ${
+                selectedCategory === 'israel'
+                  ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
+              }`}
+            >
+              Israel
+            </button>
+            <button
+              onClick={() => setSelectedCategory('lebanon')}
+              className={`px-6 py-2 rounded-lg font-medium transition ${
+                selectedCategory === 'lebanon'
+                  ? 'bg-gradient-to-r from-yellow-500 to-lime-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
+              }`}
+            >
+              Lebanon
+            </button>
+            <button
               onClick={() => setSelectedCategory('ukraine')}
               className={`px-6 py-2 rounded-lg font-medium transition ${
                 selectedCategory === 'ukraine'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
+                  : 'bg-slate-800/50 text-gray-300 hover:bg-slate-700/50 border border-white/10'
               }`}
             >
               Ukraine
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Campaigns Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
-          {filteredCrises.map((crisis) => (
-            <div key={crisis.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-              {/* Campaign Header */}
-              <div className="relative">
-                <img 
-                  src={crisis.image}
-                  alt={crisis.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 right-4">
-                  <span className={`${getUrgencyColor(crisis.urgency)} text-white px-3 py-1 rounded-full text-xs font-bold`}>
-                    {getUrgencyBadge(crisis.urgency)}
-                  </span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                  <h3 className="text-white font-bold text-lg">{crisis.title}</h3>
-                </div>
-              </div>
-
-              {/* Campaign Content */}
-              <div className="p-6">
-                <div className="mb-4">
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {crisis.description}
-                  </p>
-                </div>
-
-                {/* Key Info */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="text-center p-3 bg-gray-50 rounded-lg">
-                    <div className="text-lg font-bold text-gray-900">{crisis.beneficiaries}</div>
-                    <div className="text-xs text-gray-600">Beneficiaries</div>
-                  </div>
-                  <div className="text-center p-3 bg-gray-50 rounded-lg">
-                    <div className="text-lg font-bold text-gray-900">{crisis.location}</div>
-                    <div className="text-xs text-gray-600">Location</div>
-                  </div>
-                </div>
-
-                {/* Progress */}
-                <div className="mb-6">
-                  <div className="flex justify-between text-sm text-gray-600 mb-2">
-                    <span>${crisis.raised.toLocaleString()} raised</span>
-                    <span>{Math.round((crisis.raised / crisis.goal) * 100)}%</span>
-                  </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
-                    <div 
-                      className={`h-3 rounded-full transition-all duration-500 ${getUrgencyColor(crisis.urgency)}`}
-                      style={{ width: `${Math.min((crisis.raised / crisis.goal) * 100, 100)}%` }}
-                    ></div>
-                  </div>
-                  <div className="flex justify-between text-sm text-gray-600 mt-1">
-                    <span>{crisis.donors.toLocaleString()} donors</span>
-                    <span>Goal: ${crisis.goal.toLocaleString()}</span>
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {crisis.tags.map((tag, index) => (
-                    <span 
-                      key={index}
-                      className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-xs font-medium"
-                    >
-                      {tag}
+        {/* Campaigns Grid */}
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {filteredCrises.map((crisis) => (
+              <div key={crisis.id} className="relative group">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/10 hover:border-white/20 transition">
+                  {/* Campaign Header */}
+                  <div className="relative">
+                    <img
+                      src={crisis.image}
+                      alt={crisis.title}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <span className={`${getUrgencyColor(crisis.urgency)} text-white px-3 py-1 rounded-full text-xs font-bold backdrop-blur-sm bg-opacity-80`}>
+                      {getUrgencyBadge(crisis.urgency)}
                     </span>
-                  ))}
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-4">
+                    <h3 className="text-white font-bold text-lg">{crisis.title}</h3>
+                  </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="space-y-3">
-                  <button
-                    onClick={() => handleViewGallery(crisis.id)}
-                    className="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition"
-                  >
-                    View All Images & Stories
-                  </button>
-                  <button
-                    onClick={() => handleDonate(crisis.id)}
-                    className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition"
-                  >
-                    Donate Now
-                  </button>
+                {/* Campaign Content */}
+                <div className="p-6">
+                  <div className="mb-4">
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {crisis.description}
+                    </p>
+                  </div>
+
+                  {/* Key Info */}
+                  <div className="grid grid-cols-2 gap-4 mb-6">
+                    <div className="text-center p-3 bg-slate-800/50 rounded-lg border border-white/10">
+                      <div className="text-lg font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">{crisis.beneficiaries}</div>
+                      <div className="text-xs text-gray-400">Beneficiaries</div>
+                    </div>
+                    <div className="text-center p-3 bg-slate-800/50 rounded-lg border border-white/10">
+                      <div className="text-lg font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">{crisis.location}</div>
+                      <div className="text-xs text-gray-400">Location</div>
+                    </div>
+                  </div>
+
+                  {/* Progress */}
+                  <div className="mb-6">
+                    <div className="flex justify-between text-sm text-gray-300 mb-2">
+                      <span>${crisis.raised.toLocaleString()} raised</span>
+                      <span>{Math.round((crisis.raised / crisis.goal) * 100)}%</span>
+                    </div>
+                    <div className="w-full bg-slate-700 rounded-full h-3">
+                      <div
+                        className={`h-3 rounded-full transition-all duration-500 ${getUrgencyColor(crisis.urgency)}`}
+                        style={{ width: `${Math.min((crisis.raised / crisis.goal) * 100, 100)}%` }}
+                      ></div>
+                    </div>
+                    <div className="flex justify-between text-sm text-gray-400 mt-1">
+                      <span>{crisis.donors.toLocaleString()} donors</span>
+                      <span>Goal: ${crisis.goal.toLocaleString()}</span>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {crisis.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="bg-slate-800/50 text-purple-300 px-3 py-1 rounded-full text-xs font-medium border border-white/10"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => handleDonate(crisis.id)}
+                      className="w-full bg-gradient-to-r from-red-600 to-pink-600 text-white py-3 rounded-lg font-semibold hover:from-red-700 hover:to-pink-700 transition"
+                    >
+                      Donate Now
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Impact Section */}
-      <div className="bg-indigo-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Your Support Makes a Difference
-            </h2>
-            <p className="text-xl max-w-3xl mx-auto">
-              Every donation provides immediate relief to families affected by conflict
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0l-5.66 5.66a8 8 0 11-11.31 0l-5.66-5.66a8 8 0 1111.31 0l5.66 5.66a8 8 0 11-11.31 0l5.66-5.66z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Emergency Food</h3>
-              <p className="text-indigo-100">
-                $50 feeds a family of 5 for one week
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Safe Shelter</h3>
-              <p className="text-indigo-100">
-                $100 provides emergency shelter for 1 month
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-white bg-opacity-20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2l4-4m6 2v10a2 2 0 002 2H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v10z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Medical Care</h3>
-              <p className="text-indigo-100">
-                $25 provides essential medical supplies
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Call to Action */}
-      <div className="bg-gray-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Every Dollar Counts
-          </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Join thousands of donors providing life-saving assistance to families affected by conflict
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => window.location.href = '/donate'}
-              className="bg-indigo-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-700 transition"
-            >
-              Donate to All Crises
-            </button>
-            <button
-              onClick={() => window.location.href = '/campaigns'}
-              className="border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-indigo-50 transition"
-            >
-              Start a Fundraiser
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );

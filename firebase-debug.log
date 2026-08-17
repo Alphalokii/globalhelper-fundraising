@@ -1,0 +1,23 @@
+[debug] [2026-08-16T23:28:15.660Z] ----------------------------------------------------------------------
+[debug] [2026-08-16T23:28:15.669Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js projects:create globalhelper-foundation
+[debug] [2026-08-16T23:28:15.670Z] CLI Version:   15.14.0
+[debug] [2026-08-16T23:28:15.670Z] Platform:      win32
+[debug] [2026-08-16T23:28:15.670Z] Node Version:  v24.11.1
+[debug] [2026-08-16T23:28:15.671Z] Time:          Mon Aug 17 2026 00:28:15 GMT+0100 (West Africa Standard Time)
+[debug] [2026-08-16T23:28:15.671Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-08-16T23:28:16.635Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-08-16T23:28:16.636Z] > authorizing via signed-in user (primeworld069@gmail.com)
+[debug] [2026-08-16T23:31:40.228Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:508:28)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1317:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:284:20)
+    at ReadStream.emit (node:events:520:35)
+    at emitKeys (node:internal/readline/utils:371:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+    at ReadStream.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+[error] 
+[error] Error: An unexpected error has occurred.
