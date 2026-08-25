@@ -21,3 +21,65 @@
     at addChunk (node:internal/streams/readable:559:12)
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2026-08-25T22:50:21.411Z] ----------------------------------------------------------------------
+[debug] [2026-08-25T22:50:21.423Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2026-08-25T22:50:21.424Z] CLI Version:   15.14.0
+[debug] [2026-08-25T22:50:21.424Z] Platform:      win32
+[debug] [2026-08-25T22:50:21.425Z] Node Version:  v24.11.1
+[debug] [2026-08-25T22:50:21.426Z] Time:          Tue Aug 25 2026 23:50:21 GMT+0100 (West Africa Standard Time)
+[debug] [2026-08-25T22:50:21.426Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-08-25T22:50:21.434Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-08-25T22:50:41.155Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-08-25T22:50:41.156Z] > authorizing via signed-in user (primeworld069@gmail.com)
+[debug] [2026-08-25T22:50:41.156Z] [iam] checking project globalhelper-donation for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-08-25T22:50:41.158Z] Checked if tokens are valid: false, expires at: 1786926379653
+[debug] [2026-08-25T22:50:41.159Z] Checked if tokens are valid: false, expires at: 1786926379653
+[debug] [2026-08-25T22:50:41.159Z] > refreshing access token with scopes: []
+[debug] [2026-08-25T22:50:41.162Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-08-25T22:50:41.162Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-08-25T22:50:41.741Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-08-25T22:50:41.741Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-08-25T22:50:41.762Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/globalhelper-donation:testIamPermissions [none]
+[debug] [2026-08-25T22:50:41.762Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/globalhelper-donation:testIamPermissions  x-goog-user-project=globalhelper-donation
+[debug] [2026-08-25T22:50:41.763Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/globalhelper-donation:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-08-25T22:50:42.006Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-08-25T22:50:42.006Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-08-25T22:50:42.717Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/globalhelper-donation:testIamPermissions 403
+[debug] [2026-08-25T22:50:42.717Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/globalhelper-donation:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project globalhelper-donation. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=globalhelper-donation and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"service":"cloudresourcemanager.googleapis.com","consumer":"projects/globalhelper-donation","consoleUrl":"https://console.developers.google.com/iam-admin/iam?project=globalhelper-donation","containerInfo":"globalhelper-donation"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project globalhelper-donation. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=globalhelper-donation and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam?project=globalhelper-donation"}]}]}}
+[debug] [2026-08-25T22:50:42.719Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/globalhelper-donation:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project globalhelper-donation. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam?project=globalhelper-donation and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-08-25T22:50:42.720Z] Checked if tokens are valid: true, expires at: 1787701840742
+[debug] [2026-08-25T22:50:42.720Z] Checked if tokens are valid: true, expires at: 1787701840742
+[debug] [2026-08-25T22:50:42.721Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/globalhelper-donation [none]
+[debug] [2026-08-25T22:50:43.436Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/globalhelper-donation 403
+[debug] [2026-08-25T22:50:43.437Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/globalhelper-donation {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-08-25T22:50:43.437Z] Request to https://firebase.googleapis.com/v1beta1/projects/globalhelper-donation had HTTP Error: 403, The caller does not have permission
+[debug] [2026-08-25T22:50:44.143Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/globalhelper-donation had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:333:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+[error] 
+[error] Error: Failed to get Firebase project globalhelper-donation. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-08-25T22:55:34.970Z] ----------------------------------------------------------------------
+[debug] [2026-08-25T22:55:34.991Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js projects:create globalhelper-foundation
+[debug] [2026-08-25T22:55:34.995Z] CLI Version:   15.14.0
+[debug] [2026-08-25T22:55:34.995Z] Platform:      win32
+[debug] [2026-08-25T22:55:34.995Z] Node Version:  v24.11.1
+[debug] [2026-08-25T22:55:34.996Z] Time:          Tue Aug 25 2026 23:55:34 GMT+0100 (West Africa Standard Time)
+[debug] [2026-08-25T22:55:34.996Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-08-25T22:55:35.753Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-08-25T22:55:35.754Z] > authorizing via signed-in user (primeworld069@gmail.com)
+[debug] [2026-08-25T22:58:57.929Z] ExitPromptError: User force closed the prompt with SIGINT
+    at Interface.sigint (C:\Users\prime\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\@inquirer\core\dist\commonjs\lib\create-prompt.js:101:37)
+    at Interface.emit (node:events:508:28)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1317:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:284:20)
+    at ReadStream.emit (node:events:520:35)
+    at emitKeys (node:internal/readline/utils:371:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+    at ReadStream.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+[error] 
+[error] Error: An unexpected error has occurred.
